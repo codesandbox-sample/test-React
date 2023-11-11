@@ -25,6 +25,15 @@ const App = () => {
   //   fontSize: "18px", // cssでは、font-sizeだけど
   // };
 
+  // Too many re-renders
+  if (num > 0) {
+    if (num % 3 === 0) {
+      faceShowFlg || setfaceShowFlg(true);
+    } else {
+      faceShowFlg && setfaceShowFlg(false);
+    }
+  }
+
   return (
     <>
       <h1 style={{ color: "red" }}>こんにちは</h1>

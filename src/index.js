@@ -1,7 +1,7 @@
 import React from "react";
-import ReactDom from "react-dom";
+import ReactDom from "react-dom"; // コンポーネントをhtmlに反映していくライブラリ
 
-// JSX記法：javascriptの中にhtmlタグを書く
+// // JSX記法：javascriptの中にhtmlタグを書く
 // const App = () => {
 //   return (
 //     // <div></div> return htmlの内容は一つのタグで括る必要あり

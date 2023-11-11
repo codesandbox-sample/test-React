@@ -8,7 +8,7 @@ import ReactDom from "react-dom"; // コンポーネントをhtmlに反映して
 //     // <React.Fragment></React.Fragment>  この記載でも可
 //     <>
 //       <h1>こんにちは</h1>
-//       <p>お元気ですか？</p>
+//       <p>お元気ですか？？</p>
 //     </>
 //   );
 // };

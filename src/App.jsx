@@ -1,11 +1,10 @@
-import React, { useState } from "react";
-// import { useState } from "react/cjs/react.production.min";
+import React, { useState, useEffect } from "react";
 import ColorfulMessage from "./components/ColorfulMessage";
 
 const App = () => {
   console.log("さいしょ");
   const [num, setNum] = useState(0);
-  const [faceShowFlg, setfaceShowFlg] = useState(true);
+  const [faceShowFlg, setfaceShowFlg] = useState(false);
 
   // const onClickButton = () => {
   //   alert();
@@ -13,6 +12,7 @@ const App = () => {
   const onClickCountUp = () => {
     setNum(num + 1);
   };
+
   const onClickSwitchShowFlag = () => {
     setfaceShowFlg(!faceShowFlg);
   };
@@ -25,14 +25,22 @@ const App = () => {
   //   fontSize: "18px", // cssでは、font-sizeだけど
   // };
 
-  // Too many re-renders
-  if (num > 0) {
-    if (num % 3 === 0) {
-      faceShowFlg || setfaceShowFlg(true);
-    } else {
-      faceShowFlg && setfaceShowFlg(false);
+  // 再レンダリングと副作用
+  useEffect(() => {
+    console.log("useEffect");
+  }, []); // 第二引数に空の配列だと、初回１回のみ
+  useEffect(() => {
+    console.log("numが変わった");
+  }, [num]); // numに変更がある場合
+  useEffect(() => {
+    if (num > 0) {
+      if (num % 3 === 0) {
+        faceShowFlg || setfaceShowFlg(true); // Too many re-renders回避
+      } else {
+        faceShowFlg && setfaceShowFlg(false); // Too many re-renders回避
+      }
     }
-  }
+  }, [num]);
 
   return (
     <>

@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from "react";
-import ColorfulMessage from "./components/ColorfulMessage";
+// import ColorfulMessage from "./components/ColorfulMessage";  // default exportの場合
+import { ColorfulMessage } from "./components/ColorfulMessage"; // 通常のexportの場合、分割代入
 
 const App = () => {
   console.log("さいしょ");
@@ -30,8 +31,8 @@ const App = () => {
     console.log("useEffect");
   }, []); // 第二引数に空の配列だと、初回１回のみ
   useEffect(() => {
-    console.log("numが変わった");
-  }, [num]); // numに変更がある場合
+    console.log(`faceShowFlgが${faceShowFlg}に変更`);
+  }, [faceShowFlg]); // faceShowFlgに変更がある場合
   useEffect(() => {
     if (num > 0) {
       if (num % 3 === 0) {
